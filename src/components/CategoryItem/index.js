@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
+import baseUrl from '../../services/baseUrl.json';
+
 export default function CaegoryItem({data, favorite}) {
   const navigation = useNavigation();
 
@@ -22,7 +24,9 @@ export default function CaegoryItem({data, favorite}) {
       <Image
         style={styles.icon}
         source={{
-          uri: `http://192.168.0.103:1337${data?.attributes?.icon?.data?.attributes?.url}`,
+          uri:
+            baseUrl.baseUrl +
+            `${data?.attributes?.icon?.data?.attributes?.url}`,
         }}
       />
       <Text styles={styles.name}>{data?.attributes?.name} </Text>

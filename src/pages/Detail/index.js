@@ -17,6 +17,8 @@ import api from '../../services/api';
 
 import LinkWeb from '../../components/LinkWeb';
 
+import baseUrl from '../../services/baseUrl.json';
+
 export default function Detail() {
   const route = useRoute();
   const navigaton = useNavigation();
@@ -87,7 +89,9 @@ export default function Detail() {
         resizeMode="cover"
         style={styles.cover}
         source={{
-          uri: `http://192.168.0.103:1337${post?.attributes?.cover?.data?.attributes?.url}`,
+          uri:
+            baseUrl.baseUrl +
+            `${post?.attributes?.cover?.data?.attributes?.url}`,
         }}
       />
       <Text style={styles.title}>{post?.attributes?.title}</Text>

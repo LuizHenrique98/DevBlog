@@ -12,6 +12,8 @@ import {useNavigation} from '@react-navigation/native';
 
 const {width: WIDTH} = Dimensions.get('window');
 
+import baseUrl from '../../services/baseUrl.json';
+
 export default function FavoritePosts({data}) {
   const navigation = useNavigation();
 
@@ -23,7 +25,9 @@ export default function FavoritePosts({data}) {
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
       <ImageBackground
         source={{
-          uri: `http://192.168.0.103:1337${data?.attributes?.cover.data?.attributes?.url}`,
+          uri:
+            baseUrl.baseUrl +
+            `${data?.attributes?.cover.data?.attributes?.url}`,
         }}
         style={styles.cover}
         resizeMode="cover"

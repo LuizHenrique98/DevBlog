@@ -3,6 +3,8 @@ import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
+import baseUrl from '../../services/baseUrl.json';
+
 export default function PostItem({data}) {
   const navigation = useNavigation();
 
@@ -16,7 +18,9 @@ export default function PostItem({data}) {
         <Image
           style={styles.cover}
           source={{
-            uri: `http://192.168.0.103:1337${data?.attributes?.cover?.data?.attributes.url}`,
+            uri:
+              baseUrl.baseUrl +
+              `${data?.attributes?.cover?.data?.attributes.url}`,
           }}
         />
       </View>
